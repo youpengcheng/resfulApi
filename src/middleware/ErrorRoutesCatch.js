@@ -3,6 +3,7 @@ module.exports = function () {
     return next().catch((err) => {
       switch (err.status) {
         case 401:
+          console.log('err.status')
           ctx.status = 200
           ctx.body = {
             status: 401,

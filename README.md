@@ -63,7 +63,6 @@ node dist/app.js
 ```bash
 pm2 start pm2.js
 ```
-
 PM2 配合 Docker 部署说明： http://pm2.keymetrics.io/docs/usage/docker-pm2-nodejs/
 
 ### Docker 部署说明

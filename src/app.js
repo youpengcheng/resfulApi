@@ -1,15 +1,18 @@
 import Koa2 from 'koa'
 import KoaBody from 'koa-body'
 import KoaStatic from 'koa-static2'
+
 import {
   System as SystemConfig
 } from './config'
+
 import path from 'path'
 import MainRoutes from './routes/main-routes'
 import ErrorRoutesCatch from './middleware/ErrorRoutesCatch'
 import ErrorRoutes from './routes/error-routes'
 import jwt from 'koa-jwt'
 import fs from 'fs'
+
 // import PluginLoader from './lib/PluginLoader'
 
 const app = new Koa2()
@@ -29,6 +32,7 @@ app
     ctx.set('Access-Control-Allow-Credentials', true) // 允许带上 cookie
     return next()
   })
+
   .use(ErrorRoutesCatch())
   .use(KoaStatic('assets', path.resolve(__dirname, '../assets'))) // Static resource
   .use(jwt({ secret: publicKey }).unless({ path: [/^\/public|\/user\/login|\/assets/] }))
