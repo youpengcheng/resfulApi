@@ -1,0 +1,35 @@
+{
+  "apps": [
+    {
+      "name": "RESRful API Server", // 项目名称
+      "script":"./dist/app.js", // 入口文件
+      "env": {
+        "COMMON_VARIABLE": "true"
+      },
+      "env_production": {
+        "NODE_ENV": "production" // 环境变量
+      }
+    }
+  ],
+  // 环境部署的配置，此处只以production为例
+  "deploy": {
+    "production": {
+      // 登录服务器的用户名
+      "user": "ypc",
+      // 服务器ip
+      "host": ["118.31.16.80"],
+      // 服务器ssh登录端口，未修改的话一般默认为22
+      "port": "22",
+      // 指定拉取的分支
+      "ref": "origin/dev",
+      // 远程仓库地址
+      "repo": "git@github.com:youpengcheng/resfulApi.git",
+      // 指定代码拉取到服务器的目录
+      "path": "E:/api2",
+      "ssh_options": "StrictHostKeyChecking=no",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  }
+}
